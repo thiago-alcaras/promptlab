@@ -1,4 +1,4 @@
-import { Module } from '@/shared/types/modules';
+import { Module } from '../../../shared/types/modules';
 
 export const modules: Module[] = [
   {
