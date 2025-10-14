@@ -217,22 +217,114 @@ Vetores próximos = significados relacionados`}
               </div>
 
               <div className="bg-white p-5 rounded-lg border-2 border-slate-200">
-                <h4 className="font-bold text-slate-800 mb-3">📋 Exemplo Prático: Busca vs Busca Semântica</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <h4 className="font-bold text-slate-800 mb-4">📋 Diferença Prática: Busca Tradicional vs Semântica</h4>
+                
+                <div className="mb-6 p-4 bg-slate-50 rounded-lg border border-slate-200">
+                  <h5 className="font-semibold text-slate-800 mb-3">🎯 Situação: Você precisa de informações sobre redução de gastos</h5>
+                  <p className="text-sm text-slate-600">
+                    Uma empresa tem uma base de conhecimento com centenas de documentos sobre gestão financeira. 
+                    Vamos ver como cada tipo de busca se comporta com a mesma consulta.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <div>
-                    <h5 className="font-semibold text-red-700 mb-2">❌ Busca Tradicional (Keyword)</h5>
-                    <div className="bg-red-50 p-3 rounded border border-red-200">
-                      <p className="text-sm"><strong>Consulta:</strong> "Como reduzir custos?"</p>
-                      <p className="text-sm"><strong>Resultado:</strong> Apenas documentos que contêm exatamente "reduzir" e "custos"</p>
-                      <p className="text-xs text-red-600 mt-2">Perde documentos sobre "economizar dinheiro", "otimizar gastos", etc.</p>
+                    <h5 className="font-semibold text-red-700 mb-3">❌ Busca Tradicional (Por Palavras-chave)</h5>
+                    <div className="bg-red-50 p-4 rounded border border-red-200 space-y-3">
+                      <div>
+                        <p className="text-sm font-medium text-red-800">Consulta:</p>
+                        <p className="text-sm bg-white p-2 rounded border">"Como reduzir custos?"</p>
+                      </div>
+                      
+                      <div>
+                        <p className="text-sm font-medium text-red-800">Como funciona:</p>
+                        <p className="text-xs text-red-700">Procura documentos que contêm EXATAMENTE as palavras "reduzir" e "custos"</p>
+                      </div>
+                      
+                      <div>
+                        <p className="text-sm font-medium text-red-800">Encontra:</p>
+                        <ul className="text-xs text-red-600 space-y-1">
+                          <li>• "Manual para reduzir custos operacionais"</li>
+                          <li>• "Como reduzir custos de infraestrutura"</li>
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <p className="text-sm font-medium text-red-800">NÃO encontra:</p>
+                        <ul className="text-xs text-red-600 space-y-1">
+                          <li>• "Estratégias para economizar dinheiro"</li>
+                          <li>• "Otimização de gastos empresariais"</li>
+                          <li>• "Como diminuir despesas"</li>
+                          <li>• "Cortar gastos desnecessários"</li>
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-red-100 p-2 rounded">
+                        <p className="text-xs font-medium text-red-800">Problema:</p>
+                        <p className="text-xs text-red-700">Perde 80% do conteúdo relevante por usar sinônimos ou termos relacionados</p>
+                      </div>
                     </div>
                   </div>
+                  
                   <div>
-                    <h5 className="font-semibold text-green-700 mb-2">✅ Busca Semântica</h5>
-                    <div className="bg-green-50 p-3 rounded border border-green-200">
-                      <p className="text-sm"><strong>Consulta:</strong> "Como reduzir custos?"</p>
-                      <p className="text-sm"><strong>Resultado:</strong> Documentos sobre economia, otimização, eficiência financeira</p>
-                      <p className="text-xs text-green-600 mt-2">Encontra conteúdo relacionado mesmo sem palavras exatas</p>
+                    <h5 className="font-semibold text-green-700 mb-3">✅ Busca Semântica (Por Significado)</h5>
+                    <div className="bg-green-50 p-4 rounded border border-green-200 space-y-3">
+                      <div>
+                        <p className="text-sm font-medium text-green-800">Consulta:</p>
+                        <p className="text-sm bg-white p-2 rounded border">"Como reduzir custos?"</p>
+                      </div>
+                      
+                      <div>
+                        <p className="text-sm font-medium text-green-800">Como funciona:</p>
+                        <p className="text-xs text-green-700">Converte a pergunta em um vetor matemático e busca por documentos com vetores similares</p>
+                      </div>
+                      
+                      <div>
+                        <p className="text-sm font-medium text-green-800">Encontra TUDO relacionado:</p>
+                        <ul className="text-xs text-green-600 space-y-1">
+                          <li>• "Manual para reduzir custos operacionais"</li>
+                          <li>• "Estratégias para economizar dinheiro"</li>
+                          <li>• "Otimização de gastos empresariais"</li>
+                          <li>• "Como diminuir despesas"</li>
+                          <li>• "Cortar gastos desnecessários"</li>
+                          <li>• "Aumentar eficiência financeira"</li>
+                          <li>• "ROI e controle orçamentário"</li>
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <p className="text-sm font-medium text-green-800">Entende contextos:</p>
+                        <ul className="text-xs text-green-600 space-y-1">
+                          <li>• Sinônimos (economizar = reduzir)</li>
+                          <li>• Conceitos relacionados (ROI, eficiência)</li>
+                          <li>• Diferentes formulações da mesma ideia</li>
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-green-100 p-2 rounded">
+                        <p className="text-xs font-medium text-green-800">Vantagem:</p>
+                        <p className="text-xs text-green-700">Encontra 95% do conteúdo relevante, mesmo com linguagem completamente diferente</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <h5 className="font-semibold text-blue-800 mb-2">🧠 Por que isso acontece?</h5>
+                  <p className="text-sm text-blue-700 mb-3">
+                    A busca semântica usa <strong>embeddings</strong> - representações matemáticas que capturam o <strong>significado</strong> das palavras, 
+                    não apenas as letras que as formam.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-blue-600">
+                    <div>
+                      <strong>Busca Tradicional analisa:</strong>
+                      <p>Letras e palavras exatas</p>
+                      <code className="bg-white p-1 rounded">["r","e","d","u","z","i","r"]</code>
+                    </div>
+                    <div>
+                      <strong>Busca Semântica analisa:</strong>
+                      <p>Significado matemático</p>
+                      <code className="bg-white p-1 rounded">[0.2, -0.5, 0.8, ...]</code>
                     </div>
                   </div>
                 </div>

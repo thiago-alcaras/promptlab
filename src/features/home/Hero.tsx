@@ -24,7 +24,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-          Uma plataforma educacional criada para acompanhar e facilitar o aprendizado de Prompt Engineering de forma visual, prática e didática. 
+          Uma plataforma educacional criada para acompanhar e facilitar o aprendizado de Prompt Engineering de forma visual, prática e didática.
           Desenvolvida com IA e focada em ensinar conceitos fundamentais sem complicação.
         </p>
 
