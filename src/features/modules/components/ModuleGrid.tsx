@@ -1,11 +1,9 @@
 import { allModules } from '../data/modules';
 import ModuleCard from './ModuleCard';
+import { useNavigate } from 'react-router-dom';
 
-interface ModuleGridProps {
-  onModuleSelect: (moduleId: string) => void;
-}
-
-export default function ModuleGrid({ onModuleSelect }: ModuleGridProps) {
+export default function ModuleGrid() {
+  const navigate = useNavigate();
   const beginnerModules = allModules.filter(m => m.difficulty === 'beginner');
   const intermediateModules = allModules.filter(m => m.difficulty === 'intermediate');
   const advancedModules = allModules.filter(m => m.difficulty === 'advanced');
@@ -21,7 +19,7 @@ export default function ModuleGrid({ onModuleSelect }: ModuleGridProps) {
           <ModuleCard
             key={module.id}
             module={module}
-            onSelect={onModuleSelect}
+            onSelect={(moduleId) => navigate(`/modules/${moduleId}`)}
           />
         ))}
       </div>

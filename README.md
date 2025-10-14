@@ -18,7 +18,6 @@ O PromptLab é uma plataforma educacional gratuita para aprender Prompt Engineer
 
 O PromptLab é perfeito para:
 - Desenvolvedores que querem melhorar suas habilidades com IA
-- Profissionais de produto que trabalham com LLMs
 - Curiosos que querem entender como criar prompts eficazes
 - Qualquer pessoa interessada em Prompt Engineering
 
@@ -59,7 +58,7 @@ Quer contribuir? Ótimo! Este projeto é open source e toda ajuda é bem-vinda:
 
 ## 📄 Licença
 
-Este projeto é gratuito e open source, licenciado sob a MIT License.
+Este projeto é gratuito e open source
 
 ---
 

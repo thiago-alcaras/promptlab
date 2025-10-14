@@ -1,4 +1,4 @@
-import { Trophy, Target, Clock, Flame, CheckCircle } from 'lucide-react';
+import { Trophy, Target, Flame, CheckCircle } from 'lucide-react';
 import { allModules } from '../modules';
 import { useModuleProgress } from '../../shared/hooks/useModuleProgress';
 
@@ -6,35 +6,28 @@ export default function Progress() {
   const { getProgressStats, isModuleCompleted } = useModuleProgress();
   const progressStats = getProgressStats();
 
-  const formatTime = (seconds: number) => {
-    if (seconds < 60) return `${seconds}s`;
-    if (seconds < 3600) return `${Math.floor(seconds / 60)}min`;
-    return `${Math.floor(seconds / 3600)}h ${Math.floor((seconds % 3600) / 60)}min`;
-  };
+  // Calcular estatísticas manualmente já que temos acesso aos allModules
+  const completedCount = allModules.filter(module => isModuleCompleted(module.id)).length;
+  const totalModules = allModules.length;
+  const progressPercentage = totalModules > 0 ? Math.round((completedCount / totalModules) * 100) : 0;
 
   const statCards = [
     {
       icon: Target,
       label: 'Módulos Concluídos',
-      value: progressStats ? `${progressStats.completedCount}/${progressStats.totalModules}` : '0/0',
+      value: `${completedCount}/${totalModules}`,
       color: 'blue' as const
     },
     {
       icon: Trophy,
       label: 'Taxa de Conclusão',
-      value: progressStats ? `${progressStats.progressPercentage}%` : '0%',
+      value: `${progressPercentage}%`,
       color: 'yellow' as const
-    },
-    {
-      icon: Clock,
-      label: 'Tempo de Estudo',
-      value: progressStats ? formatTime(progressStats.totalTimeSpent) : '0s',
-      color: 'green' as const
     },
     {
       icon: Flame,
       label: 'Sequência Atual',
-      value: progressStats ? `${progressStats.currentStreak} dias` : '0 dias',
+      value: progressStats ? `${progressStats.currentStreak} dias` : '1 dias',
       color: 'orange' as const
     }
   ];
@@ -42,8 +35,6 @@ export default function Progress() {
   const colorClasses = {
     blue: 'bg-blue-50 text-blue-600 border-blue-200',
     yellow: 'bg-yellow-50 text-yellow-600 border-yellow-200',
-    green: 'bg-green-50 text-green-600 border-green-200',
-    purple: 'bg-purple-50 text-purple-600 border-purple-200',
     orange: 'bg-orange-50 text-orange-600 border-orange-200'
   };
 
@@ -62,7 +53,7 @@ export default function Progress() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {statCards.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -87,12 +78,12 @@ export default function Progress() {
           <div className="mb-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-slate-600">Conclusão do Curso</span>
-              <span className="font-bold text-slate-800">{progressStats?.progressPercentage ?? 0}%</span>
+              <span className="font-bold text-slate-800">{progressPercentage}%</span>
             </div>
             <div className="w-full bg-slate-200 rounded-full h-4">
               <div
                 className="bg-gradient-to-r from-green-500 to-emerald-600 h-4 rounded-full transition-all duration-500"
-                style={{ width: `${progressStats?.progressPercentage ?? 0}%` }}
+                style={{ width: `${progressPercentage}%` }}
               />
             </div>
           </div>
@@ -161,14 +152,6 @@ export default function Progress() {
             <div className="text-center">
               <div className="text-4xl mb-2">🎯</div>
               <p className="text-sm text-slate-600">Meta: Completar<br/>todos os módulos</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl mb-2">⚡</div>
-              <p className="text-sm text-slate-600">Próximo: Capítulo 1<br/>Estrutura Básica</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl mb-2">🏆</div>
-              <p className="text-sm text-slate-600">Recompensa:<br/>Certificado</p>
             </div>
           </div>
         </div>

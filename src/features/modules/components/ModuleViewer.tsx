@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ArrowLeft, CheckCircle, Sparkles, RotateCcw } from 'lucide-react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { allModules } from '../data/modules';
 import { useModuleProgress } from '@/shared/hooks/useModuleProgress';
 import Chapter1 from '../chapters/Chapter1';
@@ -15,19 +16,26 @@ import Chapter10 from '../chapters/Chapter10';
 import Chapter11 from '../chapters/Chapter11';
 import Chapter12 from '../chapters/Chapter12';
 
-interface ModuleViewerProps {
-  moduleId: string;
-  onBack: () => void;
-  onComplete: (moduleId: string) => void;
-}
-
-export default function ModuleViewer({ moduleId, onBack, onComplete }: ModuleViewerProps) {
+export default function ModuleViewer() {
+  const { moduleId } = useParams<{ moduleId: string }>();
+  const navigate = useNavigate();
   const [isCompleting, setIsCompleting] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const [isRemoving, setIsRemoving] = useState(false);
   const { markModuleComplete, removeModuleComplete, isModuleCompleted } = useModuleProgress();
+  
+  if (!moduleId) {
+    navigate('/modules');
+    return null;
+  }
+  
   const module = allModules.find(m => m.id === moduleId);
   const moduleCompleted = isModuleCompleted(moduleId);
+  
+  if (!module) {
+    navigate('/modules');
+    return null;
+  }
 
   const handleComplete = async () => {
     if (moduleCompleted) return;
@@ -41,7 +49,7 @@ export default function ModuleViewer({ moduleId, onBack, onComplete }: ModuleVie
       
       // Feedback visual
       setTimeout(() => {
-        onComplete(moduleId);
+        navigate('/modules');
         setIsCompleting(false);
         setIsCompleted(false);
       }, 1500);
@@ -99,7 +107,7 @@ export default function ModuleViewer({ moduleId, onBack, onComplete }: ModuleVie
     <div className="min-h-screen bg-slate-50">
       <div className="max-w-4xl mx-auto px-6 py-12">
         <button
-          onClick={onBack}
+          onClick={() => navigate('/modules')}
           className="flex items-center gap-2 text-slate-600 hover:text-slate-800 mb-8 transition-colors"
         >
           <ArrowLeft size={20} />
