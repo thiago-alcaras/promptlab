@@ -15,6 +15,7 @@ import Chapter9 from '../chapters/Chapter9';
 import Chapter10 from '../chapters/Chapter10';
 import Chapter11 from '../chapters/Chapter11';
 import Chapter12 from '../chapters/Chapter12';
+import Chapter13 from '../chapters/Chapter13';
 
 export default function ModuleViewer() {
   const { moduleId } = useParams<{ moduleId: string }>();
@@ -94,6 +95,7 @@ export default function ModuleViewer() {
       case 'langsmith-intro': return <Chapter10 />;
       case 'metrics': return <Chapter11 />;
       case 'embeddings': return <Chapter12 />;
+      case 'lang-tools': return <Chapter13 />;
       default:
         return (
           <div className="text-center py-12">

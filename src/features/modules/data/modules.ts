@@ -111,6 +111,15 @@ export const additionalModules: Module[] = [
     difficulty: 'advanced',
     estimatedTime: '30 min',
     topics: ['Vector embeddings', 'Cosine similarity', 'Semantic search']
+  },
+  {
+    id: 'lang-tools',
+    chapter: 13,
+    title: 'Ecossistema de Ferramentas de IA',
+    description: 'Explore LangChain, LangSmith, LangFuse, LlamaIndex e PromptLayer com exemplos práticos.',
+    difficulty: 'advanced',
+    estimatedTime: '40 min',
+    topics: ['LangChain framework', 'Observabilidade LangSmith', 'LlamaIndex RAG', 'Prompt versioning']
   }
 ];
 
