@@ -1,5 +1,6 @@
 import { ArrowRight, BookOpen, Play, TrendingUp, Brain, Zap, Code, Target, Users, Lightbulb } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { allModules } from '../modules/data/modules';
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ export default function Hero() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {[
-            { number: '12', label: 'módulos interativos', desc: 'Do básico ao avançado' },
+            { number: allModules.length.toString(), label: 'módulos interativos', desc: 'Do básico ao avançado' },
             { number: '0', label: 'custos de API', desc: 'Tudo simulado para aprender' },
             { number: '100%', label: 'gratuito', desc: 'Acesso total sem custos' }
           ].map((stat, index) => (
@@ -135,7 +136,7 @@ export default function Hero() {
             O que você vai aprender
           </h2>
           <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-            12 módulos cuidadosamente estruturados para levar você do zero ao avançado em Prompt Engineering
+            {allModules.length} módulos cuidadosamente estruturados para levar você do zero ao avançado em Prompt Engineering
           </p>
         </div>
 
