@@ -1,13 +1,14 @@
 import { BookOpen, Zap, Target } from 'lucide-react';
+import { useLanguage } from '../../../shared/i18n/LanguageContext';
 
 export default function Chapter7() {
+  const { t } = useLanguage();
   return (
     <div className="prose max-w-none">
-      <h2 className="text-2xl font-bold text-slate-800 mb-6">Usando Exemplos</h2>
+      <h2 className="text-2xl font-bold text-slate-800 mb-6">{t.moduleContent.chapter7.content.mainTitle}</h2>
 
       <p className="text-slate-700 mb-8 text-lg">
-        Few-shot learning é a técnica de fornecer exemplos concretos do comportamento desejado
-        antes de apresentar a tarefa real. A IA aprende o padrão através dos exemplos.
+        {t.moduleContent.chapter7.content.introduction}
       </p>
 
       <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-lg mb-8">
@@ -16,14 +17,13 @@ export default function Chapter7() {
           <div>
             <h3 className="font-bold text-purple-900 mb-2">Por que funciona?</h3>
             <p className="text-purple-800">
-              Exemplos ensinam à IA o estilo, formato e tipo de raciocínio que você espera,
-              tornando as respostas mais consistentes e alinhadas com suas necessidades.
+              {t.moduleContent.chapter7.content.whyItWorks}
             </p>
           </div>
         </div>
       </div>
 
-      <h3 className="text-xl font-bold text-slate-800 mb-4">Tipos de Few-Shot</h3>
+      <h3 className="text-xl font-bold text-slate-800 mb-4">{t.moduleContent.chapter7.content.typesTitle}</h3>
 
       <div className="space-y-6 mb-8">
         <div className="bg-white rounded-xl border-2 border-blue-200 overflow-hidden">

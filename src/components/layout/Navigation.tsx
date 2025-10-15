@@ -1,14 +1,17 @@
 import { BookOpen, Home, Play, TrendingUp } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../../shared/i18n/LanguageContext';
+import LanguageSelector from '../../shared/components/LanguageSelector';
 
 export default function Navigation() {
   const location = useLocation();
+  const { t } = useLanguage();
 
   const navItems = [
     { path: '/', label: 'Início', icon: Home },
-    { path: '/modules', label: 'Módulos', icon: BookOpen },
-    { path: '/playground', label: 'Playground', icon: Play },
-    { path: '/progress', label: 'Progresso', icon: TrendingUp }
+    { path: '/modules', label: t.navigation.modules, icon: BookOpen },
+    { path: '/playground', label: t.navigation.playground, icon: Play },
+    { path: '/progress', label: t.navigation.progress, icon: TrendingUp }
   ];
 
   return (
@@ -47,6 +50,8 @@ export default function Navigation() {
                 </Link>
               );
             })}
+            
+            <LanguageSelector />
           </div>
         </div>
       </div>

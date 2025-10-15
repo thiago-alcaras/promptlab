@@ -1,10 +1,13 @@
 import { Trophy, Target, Flame, CheckCircle } from 'lucide-react';
-import { allModules } from '../modules';
+import { getAllTranslatedModules } from '../modules/data/modules';
 import { useModuleProgress } from '../../shared/hooks/useModuleProgress';
+import { useLanguage } from '../../shared/i18n/LanguageContext';
 
 export default function Progress() {
+  const { t } = useLanguage();
   const { getProgressStats, isModuleCompleted } = useModuleProgress();
   const progressStats = getProgressStats();
+  const allModules = getAllTranslatedModules(t);
 
   // Calcular estatísticas manualmente já que temos acesso aos allModules
   const completedCount = allModules.filter(module => isModuleCompleted(module.id)).length;
@@ -14,13 +17,13 @@ export default function Progress() {
   const statCards = [
     {
       icon: Target,
-      label: 'Módulos Concluídos',
+      label: t.progress.completedModules,
       value: `${completedCount}/${totalModules}`,
       color: 'blue' as const
     },
     {
       icon: Trophy,
-      label: 'Taxa de Conclusão',
+      label: t.progress.totalProgress,
       value: `${progressPercentage}%`,
       color: 'yellow' as const
     },
@@ -43,10 +46,7 @@ export default function Progress() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-4">
-            Seu{' '}
-            <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-              Progresso
-            </span>
+            {t.progress.title}
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Acompanhe sua jornada de aprendizado em Prompt Engineering

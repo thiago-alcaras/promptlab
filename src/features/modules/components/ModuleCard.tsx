@@ -1,5 +1,6 @@
 import { Clock, ChevronRight, CheckCircle } from 'lucide-react';
 import { Module } from '../../../shared/types/modules';
+import { useLanguage } from '../../../shared/i18n/LanguageContext';
 
 interface ModuleCardProps {
   module: Module;
@@ -8,16 +9,12 @@ interface ModuleCardProps {
 }
 
 export default function ModuleCard({ module, isCompleted, onSelect }: ModuleCardProps) {
+  const { t } = useLanguage();
+  
   const difficultyColors = {
     beginner: 'bg-green-100 text-green-700 border-green-200',
     intermediate: 'bg-blue-100 text-blue-700 border-blue-200',
     advanced: 'bg-orange-100 text-orange-700 border-orange-200'
-  };
-
-  const difficultyLabels = {
-    beginner: 'Iniciante',
-    intermediate: 'Intermediário',
-    advanced: 'Avançado'
   };
 
   return (
@@ -48,7 +45,7 @@ export default function ModuleCard({ module, isCompleted, onSelect }: ModuleCard
 
       <div className="flex flex-wrap items-center gap-3 mb-4">
         <span className={`px-3 py-1 rounded-full text-xs font-medium border ${difficultyColors[module.difficulty]}`}>
-          {difficultyLabels[module.difficulty]}
+          {t.difficulty[module.difficulty]}
         </span>
         <span className="flex items-center gap-1 text-xs text-slate-500">
           <Clock size={14} />
@@ -68,7 +65,7 @@ export default function ModuleCard({ module, isCompleted, onSelect }: ModuleCard
       </div>
 
       <div className="flex items-center justify-end text-blue-600 font-medium text-sm group-hover:gap-2 transition-all">
-        <span>Acessar módulo</span>
+        <span>{t.actions.start}</span>
         <ChevronRight
           size={18}
           className="group-hover:translate-x-1 transition-transform"

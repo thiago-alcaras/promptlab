@@ -1,126 +1,136 @@
 import { Module } from '../../../shared/types/modules';
+import { Translation } from '../../../shared/i18n/types';
 
-export const modules: Module[] = [
+// Função para obter dados traduzidos dos módulos
+export const getTranslatedModules = (t: Translation): Module[] => [
   {
     id: 'chapter-1',
     chapter: 1,
-    title: 'Estrutura Básica de Prompt',
-    description: 'Aprenda os fundamentos de como estruturar um prompt efetivo para modelos de IA.',
+    title: t.moduleData.chapter1.title,
+    description: t.moduleData.chapter1.description,
     difficulty: 'beginner',
     estimatedTime: '15 min',
-    topics: ['Componentes de um prompt', 'Sintaxe básica', 'Boas práticas iniciais']
+    topics: t.moduleData.chapter1.topics
   },
   {
     id: 'chapter-2',
     chapter: 2,
-    title: 'Ser Claro e Direto',
-    description: 'Descubra como a clareza e objetividade melhoram drasticamente as respostas da IA.',
+    title: t.moduleData.chapter2.title,
+    description: t.moduleData.chapter2.description,
     difficulty: 'beginner',
     estimatedTime: '12 min',
-    topics: ['Clareza na comunicação', 'Evitar ambiguidades', 'Instruções precisas']
+    topics: t.moduleData.chapter2.topics
   },
   {
     id: 'chapter-3',
     chapter: 3,
-    title: 'Atribuindo Funções',
-    description: 'Aprenda a atribuir papéis e contextos específicos para obter respostas mais adequadas.',
+    title: t.moduleData.chapter3.title,
+    description: t.moduleData.chapter3.description,
     difficulty: 'beginner',
     estimatedTime: '18 min',
-    topics: ['Role prompting', 'Contexto profissional', 'Personalidade da IA']
+    topics: t.moduleData.chapter3.topics
   },
   {
     id: 'chapter-4',
     chapter: 4,
-    title: 'Separando Dados de Instruções',
-    description: 'Técnicas para estruturar prompts complexos separando claramente dados e comandos.',
+    title: t.moduleData.chapter4.title,
+    description: t.moduleData.chapter4.description,
     difficulty: 'intermediate',
     estimatedTime: '20 min',
-    topics: ['Estruturação avançada', 'Delimitadores', 'XML tags']
+    topics: t.moduleData.chapter4.topics
   },
   {
     id: 'chapter-5',
     chapter: 5,
-    title: 'Formatando a Saída',
-    description: 'Controle o formato das respostas: JSON, XML, Markdown e outras estruturas.',
+    title: t.moduleData.chapter5.title,
+    description: t.moduleData.chapter5.description,
     difficulty: 'intermediate',
     estimatedTime: '22 min',
-    topics: ['Output formatting', 'JSON estruturado', 'Templates de resposta']
+    topics: t.moduleData.chapter5.topics
   },
   {
     id: 'chapter-6',
     chapter: 6,
-    title: 'Precognição (Pensando Passo a Passo)',
-    description: 'Use chain-of-thought para fazer a IA raciocinar antes de responder.',
+    title: t.moduleData.chapter6.title,
+    description: t.moduleData.chapter6.description,
     difficulty: 'intermediate',
     estimatedTime: '25 min',
-    topics: ['Chain-of-thought', 'Raciocínio explícito', 'Step-by-step']
+    topics: t.moduleData.chapter6.topics
   },
   {
     id: 'chapter-7',
     chapter: 7,
-    title: 'Usando Exemplos',
-    description: 'Few-shot learning: ensine a IA por exemplos para resultados mais consistentes.',
+    title: t.moduleData.chapter7.title,
+    description: t.moduleData.chapter7.description,
     difficulty: 'intermediate',
     estimatedTime: '20 min',
-    topics: ['Few-shot prompting', 'Exemplos efetivos', 'Pattern recognition']
+    topics: t.moduleData.chapter7.topics
   },
   {
     id: 'chapter-8',
     chapter: 8,
-    title: 'Evitando Alucinações',
-    description: 'Técnicas avançadas para minimizar respostas incorretas ou inventadas.',
+    title: t.moduleData.chapter8.title,
+    description: t.moduleData.chapter8.description,
     difficulty: 'advanced',
     estimatedTime: '30 min',
-    topics: ['Grounding', 'Verificação de fatos', 'Confiabilidade']
+    topics: t.moduleData.chapter8.topics
   },
   {
     id: 'chapter-9',
     chapter: 9,
-    title: 'Prompts Complexos',
-    description: 'Casos de uso reais: chatbots, serviços jurídicos, finanças e desenvolvimento.',
+    title: t.moduleData.chapter9.title,
+    description: t.moduleData.chapter9.description,
     difficulty: 'advanced',
     estimatedTime: '45 min',
-    topics: ['Casos de uso industriais', 'Integração de sistemas', 'Prompts multi-etapa']
+    topics: t.moduleData.chapter9.topics
   },
   {
     id: 'langsmith-intro',
     chapter: 10,
-    title: 'Introdução ao LangSmith',
-    description: 'Conheça a plataforma de avaliação e monitoramento de aplicações LLM.',
+    title: t.moduleData.chapter10.title,
+    description: t.moduleData.chapter10.description,
     difficulty: 'advanced',
     estimatedTime: '25 min',
-    topics: ['LangSmith overview', 'Datasets', 'Tracing']
+    topics: t.moduleData.chapter10.topics
   }
 ];
 
-export const additionalModules: Module[] = [
+export const getTranslatedAdditionalModules = (t: Translation): Module[] => [
   {
     id: 'metrics',
     chapter: 11,
-    title: 'Métricas de Avaliação',
-    description: 'Entenda Precision, Recall, F1-score, Faithfulness e outras métricas.',
+    title: t.moduleData.chapter11.title,
+    description: t.moduleData.chapter11.description,
     difficulty: 'advanced',
     estimatedTime: '35 min',
-    topics: ['Métricas de classificação', 'RAG metrics', 'LLM-as-a-Judge']
+    topics: t.moduleData.chapter11.topics
   },
   {
     id: 'embeddings',
     chapter: 12,
-    title: 'Embeddings e Similaridade',
-    description: 'Visualize e compreenda embeddings e busca por similaridade semântica.',
+    title: t.moduleData.chapter12.title,
+    description: t.moduleData.chapter12.description,
     difficulty: 'advanced',
     estimatedTime: '30 min',
-    topics: ['Vector embeddings', 'Cosine similarity', 'Semantic search']
+    topics: t.moduleData.chapter12.topics
   },
   {
     id: 'lang-tools',
     chapter: 13,
-    title: 'Ecossistema de Ferramentas de IA',
-    description: 'Explore LangChain, LangSmith, LangFuse, LlamaIndex e PromptLayer com exemplos práticos.',
+    title: t.moduleData.chapter13.title,
+    description: t.moduleData.chapter13.description,
     difficulty: 'advanced',
     estimatedTime: '40 min',
-    topics: ['LangChain framework', 'Observabilidade LangSmith', 'LlamaIndex RAG', 'Prompt versioning']
+    topics: t.moduleData.chapter13.topics
   }
 ];
 
-export const allModules = [...modules, ...additionalModules];
+export const getAllTranslatedModules = (t: Translation): Module[] => [
+  ...getTranslatedModules(t),
+  ...getTranslatedAdditionalModules(t)
+];
+
+// Versões estáticas para compatibilidade (deprecated)
+export const modules: Module[] = [];
+export const additionalModules: Module[] = [];
+export const allModules: Module[] = [];

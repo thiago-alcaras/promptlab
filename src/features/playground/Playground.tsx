@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Send, Lightbulb, Check, Zap, Target, User, BarChart3, Brain, FileText, Sparkles, AlertTriangle, TrendingUp, Eye } from 'lucide-react';
+import { useLanguage } from '../../shared/i18n/LanguageContext';
 
 interface AnalysisResult {
   overallScore: number;
@@ -27,6 +28,7 @@ interface AnalysisResult {
 }
 
 export default function Playground() {
+  const { t } = useLanguage();
   const [prompt, setPrompt] = useState('');
   const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -247,11 +249,11 @@ export default function Playground() {
           </div>
           <h1 className="text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Playground
+              {t.playgroundContent.title}
             </span>
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Teste e aprimore seus prompts em tempo real com feedback inteligente
+            {t.playgroundContent.subtitle}
           </p>
         </div>
 
@@ -259,50 +261,50 @@ export default function Playground() {
         <div className="mb-8 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border-2 border-blue-200 p-6">
           <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
             <Target className="text-blue-600" size={24} />
-            🎯 Guia Essencial de Prompt Engineering
+            {t.playgroundContent.guide.title}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div className="bg-white/80 p-4 rounded-lg border border-blue-100">
               <h4 className="font-semibold text-slate-800 mb-2 flex items-center gap-2">
-                🎭 <span>Persona & Contexto</span>
+                🎭 <span>{t.playgroundContent.guide.personaContext.title}</span>
               </h4>
-              <p className="text-sm text-slate-600 mb-2">Defina um papel específico e contexto claro</p>
-              <code className="text-xs bg-slate-100 p-1 rounded">Você é um especialista em...</code>
+              <p className="text-sm text-slate-600 mb-2">{t.playgroundContent.guide.personaContext.description}</p>
+              <code className="text-xs bg-slate-100 p-1 rounded">{t.playgroundContent.guide.personaContext.example}</code>
             </div>
             <div className="bg-white/80 p-4 rounded-lg border border-blue-100">
               <h4 className="font-semibold text-slate-800 mb-2 flex items-center gap-2">
-                📋 <span>Estrutura Clara</span>
+                📋 <span>{t.playgroundContent.guide.clearStructure.title}</span>
               </h4>
-              <p className="text-sm text-slate-600 mb-2">Use formatação e organize em seções</p>
-              <code className="text-xs bg-slate-100 p-1 rounded">1. Primeiro... 2. Depois...</code>
+              <p className="text-sm text-slate-600 mb-2">{t.playgroundContent.guide.clearStructure.description}</p>
+              <code className="text-xs bg-slate-100 p-1 rounded">{t.playgroundContent.guide.clearStructure.example}</code>
             </div>
             <div className="bg-white/80 p-4 rounded-lg border border-blue-100">
               <h4 className="font-semibold text-slate-800 mb-2 flex items-center gap-2">
-                🎯 <span>Output Específico</span>
+                🎯 <span>{t.playgroundContent.guide.specificOutput.title}</span>
               </h4>
-              <p className="text-sm text-slate-600 mb-2">Defina formato, estilo e estrutura</p>
-              <code className="text-xs bg-slate-100 p-1 rounded">Formato: JSON com...</code>
+              <p className="text-sm text-slate-600 mb-2">{t.playgroundContent.guide.specificOutput.description}</p>
+              <code className="text-xs bg-slate-100 p-1 rounded">{t.playgroundContent.guide.specificOutput.example}</code>
             </div>
             <div className="bg-white/80 p-4 rounded-lg border border-blue-100">
               <h4 className="font-semibold text-slate-800 mb-2 flex items-center gap-2">
-                💡 <span>Exemplos Práticos</span>
+                💡 <span>{t.playgroundContent.guide.practicalExamples.title}</span>
               </h4>
-              <p className="text-sm text-slate-600 mb-2">Few-shot learning com casos reais</p>
-              <code className="text-xs bg-slate-100 p-1 rounded">Exemplo: Input → Output</code>
+              <p className="text-sm text-slate-600 mb-2">{t.playgroundContent.guide.practicalExamples.description}</p>
+              <code className="text-xs bg-slate-100 p-1 rounded">{t.playgroundContent.guide.practicalExamples.example}</code>
             </div>
             <div className="bg-white/80 p-4 rounded-lg border border-blue-100">
               <h4 className="font-semibold text-slate-800 mb-2 flex items-center gap-2">
-                🧠 <span>Chain-of-Thought</span>
+                🧠 <span>{t.playgroundContent.guide.chainOfThought.title}</span>
               </h4>
-              <p className="text-sm text-slate-600 mb-2">Promova raciocínio passo a passo</p>
-              <code className="text-xs bg-slate-100 p-1 rounded">Pense passo a passo...</code>
+              <p className="text-sm text-slate-600 mb-2">{t.playgroundContent.guide.chainOfThought.description}</p>
+              <code className="text-xs bg-slate-100 p-1 rounded">{t.playgroundContent.guide.chainOfThought.example}</code>
             </div>
             <div className="bg-white/80 p-4 rounded-lg border border-blue-100">
               <h4 className="font-semibold text-slate-800 mb-2 flex items-center gap-2">
-                ⚡ <span>Restrições & Limites</span>
+                ⚡ <span>{t.playgroundContent.guide.constraints.title}</span>
               </h4>
-              <p className="text-sm text-slate-600 mb-2">Defina o que NÃO fazer</p>
-              <code className="text-xs bg-slate-100 p-1 rounded">Não use... Evite...</code>
+              <p className="text-sm text-slate-600 mb-2">{t.playgroundContent.guide.constraints.description}</p>
+              <code className="text-xs bg-slate-100 p-1 rounded">{t.playgroundContent.guide.constraints.example}</code>
             </div>
           </div>
         </div>
@@ -312,19 +314,19 @@ export default function Playground() {
             <div className="bg-white rounded-2xl border border-slate-200 p-6">
               <div className="flex items-center gap-2 mb-4">
                 <Lightbulb className="text-blue-600" size={20} />
-                <h3 className="font-bold text-slate-800">Seu Prompt</h3>
+                <h3 className="font-bold text-slate-800">{t.playgroundContent.inputLabel}</h3>
               </div>
 
               <textarea
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
-                placeholder="Digite seu prompt aqui...&#10;&#10;Exemplo:&#10;Você é um especialista em marketing digital. Crie 3 ideias de posts para Instagram sobre sustentabilidade. Cada post deve ter um título chamativo e 3 hashtags relevantes."
+                placeholder={t.playground.promptPlaceholder}
                 className="w-full h-64 p-4 border border-slate-200 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-700"
               />
 
               <div className="flex items-center justify-between mt-4">
                 <span className="text-sm text-slate-500">
-                  {prompt.length} caracteres
+                  {prompt.length} {t.playgroundContent.charactersCount}
                 </span>
                 <button
                   onClick={analyzePrompt}
@@ -332,11 +334,11 @@ export default function Playground() {
                   className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-medium hover:shadow-lg hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   {isAnalyzing ? (
-                    <>Analisando...</>
+                    <>{t.playgroundContent.analyzing}</>
                   ) : (
                     <>
                       <Send size={18} />
-                      Analisar Prompt
+                      {t.playgroundContent.buttons.analyze}
                     </>
                   )}
                 </button>
@@ -355,7 +357,7 @@ export default function Playground() {
                         : 'text-slate-600 hover:text-blue-600'
                     }`}
                   >
-                    Análise Geral
+                    {t.playgroundContent.tabs.analysis}
                   </button>
                   <button
                     onClick={() => setActiveTab('metrics')}
@@ -365,7 +367,7 @@ export default function Playground() {
                         : 'text-slate-600 hover:text-blue-600'
                     }`}
                   >
-                    Métricas Detalhadas
+                    {t.playgroundContent.tabs.metrics}
                   </button>
                   <button
                     onClick={() => setActiveTab('suggestions')}
@@ -375,7 +377,7 @@ export default function Playground() {
                         : 'text-slate-600 hover:text-blue-600'
                     }`}
                   >
-                    Sugestões Avançadas
+                    {t.playgroundContent.tabs.suggestions}
                   </button>
                 </div>
 
@@ -384,7 +386,7 @@ export default function Playground() {
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="font-bold text-slate-800 flex items-center gap-2">
                       <Target className="text-blue-600" size={20} />
-                      Qualidade Geral do Prompt
+                      {t.playgroundContent.overallScore}
                     </h3>
                     <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                       {analysis.overallScore}/100
@@ -509,33 +511,33 @@ export default function Playground() {
                     {Object.entries(analysis.metrics).map(([key, value]) => {
                       const metricNames: Record<string, { name: string; description: string; icon: any }> = {
                         clarity: {
-                          name: 'Clareza',
-                          description: 'Quão clara e compreensível é a instrução',
+                          name: t.playgroundContent.metrics.clarity,
+                          description: t.playgroundContent.metrics.clarityDesc,
                           icon: Eye
                         },
                         specificity: {
-                          name: 'Especificidade',
-                          description: 'Nível de detalhamento e precisão das instruções',
+                          name: t.playgroundContent.metrics.specificity,
+                          description: t.playgroundContent.metrics.specificityDesc,
                           icon: Target
                         },
                         structure: {
-                          name: 'Estrutura',
-                          description: 'Organização e formatação do prompt',
+                          name: t.playgroundContent.metrics.structure,
+                          description: t.playgroundContent.metrics.structureDesc,
                           icon: FileText
                         },
                         contextuality: {
-                          name: 'Contextualização',
-                          description: 'Quantidade e qualidade do contexto fornecido',
+                          name: t.playgroundContent.metrics.contextuality,
+                          description: t.playgroundContent.metrics.contextualityDesc,
                           icon: Brain
                         },
                         persona: {
-                          name: 'Persona/Papel',
-                          description: 'Definição de papel e tom de voz',
+                          name: t.playgroundContent.metrics.persona,
+                          description: t.playgroundContent.metrics.personaDesc,
                           icon: User
                         },
                         outputFormat: {
-                          name: 'Formato de Saída',
-                          description: 'Especificação clara do formato desejado',
+                          name: t.playgroundContent.metrics.outputFormat,
+                          description: t.playgroundContent.metrics.outputFormatDesc,
                           icon: BarChart3
                         }
                       };

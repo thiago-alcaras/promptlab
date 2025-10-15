@@ -1,9 +1,12 @@
-import { allModules } from '../data/modules';
+import { getAllTranslatedModules } from '../data/modules';
 import ModuleCard from './ModuleCard';
 import { useNavigate } from 'react-router-dom';
+import { useLanguage } from '../../../shared/i18n/LanguageContext';
 
 export default function ModuleGrid() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
+  const allModules = getAllTranslatedModules(t);
   const beginnerModules = allModules.filter(m => m.difficulty === 'beginner');
   const intermediateModules = allModules.filter(m => m.difficulty === 'intermediate');
   const advancedModules = allModules.filter(m => m.difficulty === 'advanced');
@@ -30,31 +33,28 @@ export default function ModuleGrid() {
     <div className="max-w-7xl mx-auto px-6 py-12">
       <div className="text-center mb-16">
         <h1 className="text-5xl font-bold mb-4">
-          Módulos de{' '}
-          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-            Aprendizado
-          </span>
+          {t.modules.title}
         </h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-          Explore nosso currículo completo estruturado em três níveis de dificuldade
+          {t.modules.description}
         </p>
       </div>
 
       <Section
-        title="🌱 Iniciante"
-        description="Fundamentos essenciais para começar sua jornada em Prompt Engineering"
+        title={t.modules.sections.beginner.title}
+        description={t.modules.sections.beginner.description}
         modules={beginnerModules}
       />
 
       <Section
-        title="🚀 Intermediário"
-        description="Técnicas avançadas para criar prompts mais efetivos e estruturados"
+        title={t.modules.sections.intermediate.title}
+        description={t.modules.sections.intermediate.description}
         modules={intermediateModules}
       />
 
       <Section
-        title="⚡ Avançado"
-        description="Domine casos de uso complexos e ferramentas profissionais"
+        title={t.modules.sections.advanced.title}
+        description={t.modules.sections.advanced.description}
         modules={advancedModules}
       />
     </div>

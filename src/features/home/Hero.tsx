@@ -1,9 +1,12 @@
 import { ArrowRight, BookOpen, Play, TrendingUp, Brain, Zap, Code, Target, Users, Lightbulb } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { allModules } from '../modules/data/modules';
+import { getAllTranslatedModules } from '../modules/data/modules';
+import { useLanguage } from '../../shared/i18n/LanguageContext';
 
 export default function Hero() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
+  const allModules = getAllTranslatedModules(t);
   return (
     <div className="min-h-screen px-6 py-12">
       {/* Hero Principal */}
@@ -11,22 +14,21 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 rounded-full mb-8 animate-fade-in">
           <BookOpen size={16} className="text-blue-600" />
           <span className="text-sm font-medium text-blue-600">
-            Aprenda fazendo
+            {t.hero.tagline}
           </span>
         </div>
 
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-          Aprenda{' '}
+          {t.hero.title.learn}{' '}
           <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
-            Prompt Engineering
+            {t.hero.title.promptEngineering}
           </span>
           <br />
-          na prática
+          {t.hero.title.inPractice}
         </h1>
 
         <p className="text-xl text-slate-600 mb-12 max-w-4xl mx-auto leading-relaxed">
-          Uma plataforma educacional criada para acompanhar e facilitar o aprendizado de Prompt Engineering de forma visual, prática e didática.
-          Desenvolvida com IA e focada em ensinar conceitos fundamentais sem complicação.
+          {t.hero.description}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
@@ -34,7 +36,7 @@ export default function Hero() {
             onClick={() => navigate('/modules')}
             className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-medium hover:shadow-lg hover:scale-105 transition-all flex items-center justify-center gap-2"
           >
-            Começar o aprendizado
+            {t.hero.startLearning}
             <ArrowRight
               size={20}
               className="group-hover:translate-x-1 transition-transform"
@@ -44,9 +46,9 @@ export default function Hero() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {[
-            { number: allModules.length.toString(), label: 'módulos interativos', desc: 'Do básico ao avançado' },
-            { number: '0', label: 'custos de API', desc: 'Tudo simulado para aprender' },
-            { number: '100%', label: 'gratuito', desc: 'Acesso total sem custos' }
+            { number: allModules.length.toString(), label: t.hero.stats.modules, desc: t.hero.stats.modulesDesc },
+            { number: '0', label: t.hero.stats.apiCosts, desc: t.hero.stats.apiCostsDesc },
+            { number: '100%', label: t.hero.stats.free, desc: t.hero.stats.freeDesc }
           ].map((stat, index) => (
             <div
               key={index}
@@ -66,11 +68,10 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto mb-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Por que o PromptLab existe?
+            {t.hero.whyExists.title}
           </h2>
           <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            Criado durante meus estudos de Desenvolvimento com IA, o PromptLab nasceu da necessidade de uma ferramenta 
-            educativa que unisse aprendizado em IA com boas práticas de engenharia de software.
+            {t.hero.whyExists.description}
           </p>
         </div>
 
@@ -82,9 +83,9 @@ export default function Hero() {
                   <Brain className="text-blue-600" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">Aprendizado Visual</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">{t.hero.whyExists.visualLearning.title}</h3>
                   <p className="text-slate-600">
-                    Interface didática que torna conceitos complexos de Prompt Engineering fáceis de entender e aplicar.
+                    {t.hero.whyExists.visualLearning.description}
                   </p>
                 </div>
               </div>
@@ -94,9 +95,9 @@ export default function Hero() {
                   <Target className="text-green-600" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">Foco Educacional</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">{t.hero.whyExists.educationalFocus.title}</h3>
                   <p className="text-slate-600">
-                    Sem APIs reais ou custos - tudo é simulado para manter o foco no que realmente importa: aprender.
+                    {t.hero.whyExists.educationalFocus.description}
                   </p>
                 </div>
               </div>
@@ -106,9 +107,9 @@ export default function Hero() {
                   <Code className="text-purple-600" size={24} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">Boas Práticas</h3>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">{t.hero.whyExists.bestPractices.title}</h3>
                   <p className="text-slate-600">
-                    Desenvolvido com Clean Architecture, React, TypeScript e testes - uma base sólida para escalar.
+                    {t.hero.whyExists.bestPractices.description}
                   </p>
                 </div>
               </div>

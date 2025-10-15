@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { ArrowLeft, CheckCircle, Sparkles, RotateCcw } from 'lucide-react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { allModules } from '../data/modules';
+import { getAllTranslatedModules } from '../data/modules';
 import { useModuleProgress } from '@/shared/hooks/useModuleProgress';
+import { useLanguage } from '../../../shared/i18n/LanguageContext';
 import Chapter1 from '../chapters/Chapter1';
 import Chapter2 from '../chapters/Chapter2';
 import Chapter3 from '../chapters/Chapter3';
@@ -20,6 +21,7 @@ import Chapter13 from '../chapters/Chapter13';
 export default function ModuleViewer() {
   const { moduleId } = useParams<{ moduleId: string }>();
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [isCompleting, setIsCompleting] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
   const [isRemoving, setIsRemoving] = useState(false);
@@ -30,6 +32,7 @@ export default function ModuleViewer() {
     return null;
   }
   
+  const allModules = getAllTranslatedModules(t);
   const module = allModules.find(m => m.id === moduleId);
   const moduleCompleted = isModuleCompleted(moduleId);
   
@@ -113,7 +116,7 @@ export default function ModuleViewer() {
           className="flex items-center gap-2 text-slate-600 hover:text-slate-800 mb-8 transition-colors"
         >
           <ArrowLeft size={20} />
-          Voltar aos módulos
+          {t.actions.backToModules}
         </button>
 
         <div className="bg-white rounded-2xl border border-slate-200 p-8 mb-8">
