@@ -1,14 +1,14 @@
 import { Box, Search, Brain, Zap, Eye, GitBranch } from 'lucide-react';
+import { useLanguage } from '../../../shared/i18n/LanguageContext';
 
 export default function Chapter12() {
+  const { t } = useLanguage();
   return (
     <div className="prose max-w-none">
-      <h2 className="text-2xl font-bold text-slate-800 mb-6">Embeddings e Similaridade</h2>
+      <h2 className="text-2xl font-bold text-slate-800 mb-6">{t.moduleContent.chapter12.content.mainTitle}</h2>
 
       <p className="text-slate-700 mb-8 text-lg">
-        Embeddings são representações numéricas de texto que capturam significado semântico, 
-        permitindo que computadores "entendam" e comparem textos de forma matemática. 
-        Esta tecnologia é fundamental para sistemas RAG, busca semântica e muitas outras aplicações de IA.
+        {t.moduleContent.chapter12.content.introduction}
       </p>
 
       <div className="space-y-8">

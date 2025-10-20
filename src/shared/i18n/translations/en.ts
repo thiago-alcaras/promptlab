@@ -720,11 +720,11 @@ Result:`,
       },
     },
     chapter11: {
-      title: 'Evaluation Metrics',
-      description: 'Key metrics to evaluate quality, reliability and performance of AI systems.',
+      title: 'Evaluation Metrics & Pairwise',
+      description: 'Key metrics to evaluate quality, reliability and performance of AI systems, including Pairwise Evaluation with interactive simulator.',
       content: {
-        mainTitle: 'Evaluation Metrics',
-        introduction: 'Proper evaluation of AI systems is crucial to ensure quality, reliability and performance. In this module, we explore the main metrics used to evaluate language models.',
+        mainTitle: 'Evaluation Metrics & Pairwise Evaluation',
+        introduction: 'Proper evaluation of AI systems is crucial to ensure quality, reliability and performance. In this module, we explore the main metrics used to evaluate language models and the Pairwise methodology with interactive simulator.',
       },
     },
     chapter12: {
@@ -909,9 +909,9 @@ Result:`,
       topics: ['LangSmith overview', 'Datasets', 'Tracing'],
     },
     chapter11: {
-      title: 'Evaluation Metrics',
-      description: 'Understand Precision, Recall, F1-score, Faithfulness and other metrics.',
-      topics: ['Classification metrics', 'RAG metrics', 'LLM-as-a-Judge'],
+      title: 'Evaluation Metrics & Pairwise',
+      description: 'Understand Precision, Recall, F1-score, Faithfulness, Pairwise Evaluation and LLM-as-a-Judge with interactive simulator.',
+      topics: ['Classification metrics', 'RAG metrics', 'LLM-as-a-Judge', 'Pairwise Evaluation', 'Interactive simulator'],
     },
     chapter12: {
       title: 'Embeddings and Similarity',

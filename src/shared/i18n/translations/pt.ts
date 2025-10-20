@@ -720,11 +720,11 @@ Resultado:`,
       },
     },
     chapter11: {
-      title: 'Métricas de Avaliação',
-      description: 'Principais métricas para avaliar qualidade, confiabilidade e performance de sistemas de IA.',
+      title: 'Métricas de Avaliação & Pairwise',
+      description: 'Principais métricas para avaliar qualidade, confiabilidade e performance de sistemas de IA, incluindo Pairwise Evaluation com simulador interativo.',
       content: {
-        mainTitle: 'Métricas de Avaliação',
-        introduction: 'A avaliação adequada de sistemas de IA é crucial para garantir qualidade, confiabilidade e performance. Neste módulo, exploramos as principais métricas usadas para avaliar modelos de linguagem.',
+        mainTitle: 'Métricas de Avaliação & Pairwise Evaluation',
+        introduction: 'A avaliação adequada de sistemas de IA é crucial para garantir qualidade, confiabilidade e performance. Neste módulo, exploramos as principais métricas usadas para avaliar modelos de linguagem e a metodologia Pairwise com simulador interativo.',
       },
     },
     chapter12: {
@@ -911,9 +911,9 @@ Resultado:`,
       topics: ['LangSmith overview', 'Datasets', 'Tracing'],
     },
     chapter11: {
-      title: 'Métricas de Avaliação',
-      description: 'Entenda Precision, Recall, F1-score, Faithfulness e outras métricas.',
-      topics: ['Métricas de classificação', 'RAG metrics', 'LLM-as-a-Judge'],
+      title: 'Métricas de Avaliação & Pairwise',
+      description: 'Entenda Precision, Recall, F1-score, Faithfulness, Pairwise Evaluation e LLM-as-a-Judge com simulador interativo.',
+      topics: ['Métricas de classificação', 'RAG metrics', 'LLM-as-a-Judge', 'Pairwise Evaluation', 'Simulador interativo'],
     },
     chapter12: {
       title: 'Embeddings e Similaridade',

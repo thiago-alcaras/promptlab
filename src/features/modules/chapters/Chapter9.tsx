@@ -1,13 +1,14 @@
 import { MessageSquare, Scale, DollarSign, Code2 } from 'lucide-react';
+import { useLanguage } from '../../../shared/i18n/LanguageContext';
 
 export default function Chapter9() {
+  const { t } = useLanguage();
   return (
     <div className="prose max-w-none">
-      <h2 className="text-2xl font-bold text-slate-800 mb-6">Criando Prompts Complexos</h2>
+      <h2 className="text-2xl font-bold text-slate-800 mb-6">{t.moduleContent.chapter9.content.mainTitle}</h2>
 
       <p className="text-slate-700 mb-8 text-lg">
-        Neste módulo avançado, exploramos casos de uso reais de diferentes setores, aplicando
-        todas as técnicas aprendidas para criar prompts de nível profissional.
+        {t.moduleContent.chapter9.content.introduction}
       </p>
 
       <div className="space-y-8">

@@ -1,9 +1,11 @@
 import { Shield, AlertTriangle, CheckCircle2, XCircle } from 'lucide-react';
+import { useLanguage } from '../../../shared/i18n/LanguageContext';
 
 export default function Chapter8() {
+  const { t } = useLanguage();
   return (
     <div className="prose max-w-none">
-      <h2 className="text-2xl font-bold text-slate-800 mb-6">Evitando Alucinações</h2>
+      <h2 className="text-2xl font-bold text-slate-800 mb-6">{t.moduleContent.chapter8.content.mainTitle}</h2>
 
       <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mb-8">
         <div className="flex items-start gap-3">
@@ -11,14 +13,13 @@ export default function Chapter8() {
           <div>
             <h3 className="font-bold text-red-900 mb-2">O que são Alucinações?</h3>
             <p className="text-red-800">
-              Alucinações ocorrem quando a IA gera informações que parecem plausíveis mas são
-              factualmente incorretas ou inventadas. É um dos maiores desafios em aplicações de IA.
+              {t.moduleContent.chapter8.content.hallucinationDefinition}
             </p>
           </div>
         </div>
       </div>
 
-      <h3 className="text-xl font-bold text-slate-800 mb-4">Estratégias de Mitigação</h3>
+      <h3 className="text-xl font-bold text-slate-800 mb-4">{t.moduleContent.chapter8.content.mitigationStrategiesTitle}</h3>
 
       <div className="space-y-6 mb-8">
         <div className="bg-white rounded-xl border-2 border-blue-200 overflow-hidden">

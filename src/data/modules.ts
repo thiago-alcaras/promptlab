@@ -97,11 +97,11 @@ export const additionalModules: Module[] = [
   {
     id: 'metrics',
     chapter: 11,
-    title: 'Métricas de Avaliação',
-    description: 'Entenda Precision, Recall, F1-score, Faithfulness e outras métricas.',
+    title: 'Métricas de Avaliação & Pairwise',
+    description: 'Entenda Precision, Recall, F1-score, Faithfulness, Pairwise Evaluation e LLM-as-a-Judge com simulador interativo.',
     difficulty: 'advanced',
-    estimatedTime: '35 min',
-    topics: ['Métricas de classificação', 'RAG metrics', 'LLM-as-a-Judge']
+    estimatedTime: '45 min',
+    topics: ['Métricas de classificação', 'RAG metrics', 'LLM-as-a-Judge', 'Pairwise Evaluation', 'Simulador interativo']
   },
   {
     id: 'embeddings',

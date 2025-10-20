@@ -13,6 +13,7 @@ import {
   Eye,
   Settings
 } from 'lucide-react';
+import { useLanguage } from '../../../shared/i18n/LanguageContext';
 
 // Componente reutilizável para blocos de código
 interface CodeBlockProps {
@@ -199,6 +200,7 @@ function InfoCard({ icon, title, description, color, features, useCase }: InfoCa
 }
 
 export default function Chapter13() {
+  const { t } = useLanguage();
   const [runningTool, setRunningTool] = useState<string | null>(null);
   const [simulatedOutputs, setSimulatedOutputs] = useState<Record<string, string>>({});
 
@@ -417,11 +419,10 @@ response = openai.ChatCompletion.create(
       {/* Hero Section */}
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">
-          Ecossistema de Ferramentas de IA
+          {t.moduleContent.chapter13.content.mainTitle}
         </h1>
         <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-          Explore as principais ferramentas que facilitam o desenvolvimento, monitoramento e otimização 
-          de aplicações com Large Language Models (LLMs).
+          {t.moduleContent.chapter13.content.introduction}
         </p>
       </div>
 

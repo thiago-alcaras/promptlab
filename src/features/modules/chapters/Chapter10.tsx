@@ -1,14 +1,14 @@
 import { Monitor, Database, BarChart2, Settings, Play, Eye } from 'lucide-react';
+import { useLanguage } from '../../../shared/i18n/LanguageContext';
 
 export default function Chapter10() {
+  const { t } = useLanguage();
   return (
     <div className="prose max-w-none">
-      <h2 className="text-2xl font-bold text-slate-800 mb-6">Introdução ao LangSmith</h2>
+      <h2 className="text-2xl font-bold text-slate-800 mb-6">{t.moduleContent.chapter10.content.mainTitle}</h2>
 
       <p className="text-slate-700 mb-8 text-lg">
-        O LangSmith é uma plataforma profissional de desenvolvimento, monitoramento e avaliação 
-        de aplicações com modelos de linguagem (LLM). Essencial para quem trabalha seriamente 
-        com sistemas de IA em produção.
+        {t.moduleContent.chapter10.content.introduction}
       </p>
 
       <div className="space-y-8">
