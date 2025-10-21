@@ -4,10 +4,12 @@ import Hero from '../features/home';
 import { ModuleGrid, ModuleViewer } from '../features/modules';
 import Playground from '../features/playground';
 import Progress from '../features/progress';
+import ScrollToTop from '../shared/components/ScrollToTop';
 
 export default function AppRouter() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
         <Navigation />
         <div className="pt-20">
